@@ -1,0 +1,43 @@
+//putting the first value in R1
+	@R1 		//memory location
+	D=M 		//D=R1 (value)
+	@num1 		//memory location
+	M=D 		//M=number1 (value)
+	
+//putting the second value in R2
+	@R2
+	D=M
+	@num2
+	M=D
+	
+//initializing a multiplication variable so we can multiply the numbers in R3
+	@R3 		//memory location
+	M=0 		//initializing to 0
+	D=M 		//D=0
+	@mulVar 	//memory location
+	M=D 		//M=mulVar (value)
+	
+	//lopp to keep adding the numbers
+	
+(LOOP) 
+	@num2
+	D=M
+	@END
+	D;JEQ //if equal to 0 go to END
+	@num1
+	D=M
+	@mulVar
+	M=D+M
+	@num2
+	M=M-1
+	@LOOP
+	0;JMP
+(END)
+	@mulVar
+	D=M
+	@R3
+	M=D
+	@END
+	0;JMP
+	
+	
